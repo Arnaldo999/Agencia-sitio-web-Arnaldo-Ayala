@@ -8,7 +8,10 @@
   /* === RESET === */
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Poppins',sans-serif;background:#0b132b;color:#fff;padding-top:104px;}
+  body{font-family:'Poppins',sans-serif;background:#0b132b;color:#fff;}
+
+  /* Padding top solo en el sitio público */
+  body:not(.elementor-editor-active){padding-top:104px;}
 
   /* === HEADER === */
   .ayala-header{
@@ -18,6 +21,13 @@
     box-shadow:0 2px 8px rgba(0,0,0,.35);
     z-index:9999;
   }
+
+  /* En el editor: header NO fixed, posición normal */
+  body.elementor-editor-active .ayala-header {
+    position: static !important;
+    z-index: 1 !important;
+  }
+
   .ayala-container{
     max-width:1300px;margin:0 auto;
     padding:8px 30px;
@@ -86,6 +96,7 @@
     padding:10px 20px;border-radius:8px;font-weight:600;
     box-shadow:0 6px 20px rgba(0,255,174,.25);
     transition:transform .2s ease,box-shadow .2s ease;
+    display:inline-block;text-align:center;
   }
   .ayala-cta:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,255,174,.4);}
 
@@ -101,7 +112,7 @@
     position:fixed;inset:0;background:#0b132b;
     display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
     opacity:0;visibility:hidden;transition:all .3s ease;
-    z-index:9990;padding:96px 24px 40px;overflow-y:auto;
+    z-index:9990;padding:120px 24px 40px;overflow-y:auto;
   }
   .ayala-mobile.active{opacity:1;visibility:visible}
   .ayala-mobile a,.ayala-mobile button{
@@ -113,9 +124,9 @@
   }
   .ayala-mobile a:hover,.ayala-mobile button:hover{color:#00ffae;background:rgba(0,255,174,.08);}
   .mobile-submenu{max-height:0;overflow:hidden;opacity:0;transition:all .35s ease;width:100%;text-align:center}
-  .mobile-submenu.active{max-height:420px;opacity:1}
+  .mobile-submenu.active{max-height:600px;opacity:1}
   .mobile-submenu a{display:block;font-size:1.05rem;padding:10px;color:#cfd4e3}
-  .mobile-arrow{display:block;font-size:1.2rem;color:#00ffae;transition:transform .3s ease}
+  .mobile-arrow{display:block;font-size:1.2rem;color:#00ffae;transition:transform .3s ease;margin-top:-8px;}
   .mobile-arrow.rotate{transform:rotate(180deg)}
 
   /* === RESPONSIVE === */
@@ -153,8 +164,8 @@
       <div class="ayala-item"><a class="ayala-link" href="https://arnaldoayalaestratega.com/blog/">Blog</a></div>
     </nav>
 
-    <!-- Botón Contacto -->
-    <a class="ayala-cta" href="https://arnaldoayalaestratega.com/#contacto">¡Contáctame!</a>
+    <!-- Botón Contacto (desktop) -->
+    <a class="ayala-cta" href="https://wa.link/hleyob" target="_blank">¡Contáctame!</a>
 
     <!-- Burger -->
     <button class="ayala-burger"><span></span><span></span><span></span></button>
@@ -165,6 +176,7 @@
 <nav class="ayala-mobile">
   <a href="https://arnaldoayalaestratega.com/">Inicio</a>
   <a href="https://arnaldoayalaestratega.com/#quiensoy">Quién Soy</a>
+
   <button class="submenu-toggle">Agencia Comercial</button>
   <span class="mobile-arrow">▾</span>
   <div class="mobile-submenu">
@@ -172,9 +184,12 @@
     <a href="https://arnaldoayalaestratega.com/organizamos-tus-campanas-publicitarias/">Organizamos tus Campañas Publicitarias</a>
     <a href="https://arnaldoayalaestratega.com/automatizamos-tus-tareas-o-procesos/">Automatizamos tus Tareas o Procesos</a>
   </div>
+
   <a href="https://arnaldoayalaestratega.com/#testimonios">Testimonios</a>
   <a href="https://arnaldoayalaestratega.com/blog/">Blog</a>
-  <a class="ayala-cta" href="https://arnaldoayalaestratega.com/#contacto">¡Contáctame!</a>
+
+  <!-- CTA WhatsApp al final del menú móvil -->
+  <a class="ayala-cta" href="https://wa.link/hleyob" target="_blank">¡Contáctame!</a>
 </nav>
 
 <script>
@@ -190,10 +205,12 @@ document.addEventListener("DOMContentLoaded",function(){
     mobile.classList.toggle('active');
     document.body.style.overflow=mobile.classList.contains('active')?'hidden':'';
   });
+  
   submenuToggle.addEventListener('click',()=>{
     submenu.classList.toggle('active');
     arrow.classList.toggle('rotate');
   });
+  
   mobile.querySelectorAll('a').forEach(a=>{
     a.addEventListener('click',()=>{
       burger.classList.remove('active');
@@ -203,5 +220,7 @@ document.addEventListener("DOMContentLoaded",function(){
   });
 });
 </script>
+
+<!-- Sitio web hecho por Arnaldo Ayala – Estratega en IA y Marketing -->
 </body>
 </html>
