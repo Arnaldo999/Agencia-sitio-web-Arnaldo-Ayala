@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero - Agencia Arnaldo Ayala</title>
+  <style>
+    /* === RESET Y ESTILOS GENERALES === */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #ffffff;
+      background-color: #0a1628;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* === HERO SECTION CON PARALLAX === */
+    .hero-ayala {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
+      padding: 0 20px;
+      margin-top: -80px;
+      padding-top: 80px;
+    }
+
+    /* Imagen de fondo con efecto parallax */
+    .hero-ayala::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      background-image: url('https://arnaldoayalaestratega.com/wp-content/uploads/2025/11/imagen-header.webp');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      z-index: 1;
+      will-change: transform;
+    }
+
+    /* Overlay oscuro para mejorar legibilidad */
+    .hero-ayala::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(10, 22, 40, 0.85) 0%, rgba(15, 35, 65, 0.75) 100%);
+      z-index: 2;
+    }
+
+    /* Contenedor del contenido */
+    .hero-ayala-contenido {
+      position: relative;
+      z-index: 3;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 120px 40px 60px;
+    }
+
+    /* Título principal */
+    .hero-ayala h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      max-width: 900px;
+    }
+
+    /* Subtítulo descriptivo */
+    .hero-ayala-descripcion {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      color: #e0e8f0;
+      max-width: 750px;
+      font-weight: 400;
+    }
+
+    /* Contenedor de botones */
+    .hero-ayala-botones {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* Botón primario (CTA) */
+    .btn-ayala-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0a1628;
+      background: linear-gradient(135deg, #00d9ff 0%, #00b8d4 100%);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+    }
+
+    .btn-ayala-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5);
+      background: linear-gradient(135deg, #00e5ff 0%, #00c4db 100%);
+    }
+
+    /* Botón secundario */
+    .btn-ayala-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: transparent;
+      border: 2px solid #00d9ff;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-ayala-secondary:hover {
+      background: rgba(0, 217, 255, 0.1);
+      border-color: #00e5ff;
+      transform: translateY(-2px);
+    }
+
+    /* Icono de flecha en botones */
+    .btn-ayala-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-ayala-primary:hover .btn-ayala-icon,
+    .btn-ayala-secondary:hover .btn-ayala-icon {
+      transform: translateX(4px);
+    }
+
+    /* === RESPONSIVE DESIGN === */
+    @media (max-width: 1024px) {
+      .hero-ayala-contenido {
+        padding: 60px 30px 50px;
+      }
+
+      .hero-ayala h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+      }
+
+      .hero-ayala-descripcion {
+        font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Desactivar parallax en móviles para mejor rendimiento */
+      .hero-ayala::before {
+        background-attachment: scroll;
+        height: 100%;
+      }
+
+      .hero-ayala {
+        min-height: 90vh;
+        padding: 0 15px;
+      }
+
+      .hero-ayala-contenido {
+        padding: 40px 20px;
+      }
+
+      .hero-ayala h1 {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+        margin-bottom: 20px;
+      }
+
+      .hero-ayala-descripcion {
+        font-size: 1rem;
+        margin-bottom: 30px;
+      }
+
+      .hero-ayala-botones {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+      }
+
+      .btn-ayala-primary,
+      .btn-ayala-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-ayala h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero-ayala-descripcion {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+    }
+
+    /* === ANIMACIONES DE ENTRADA === */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-ayala h1 {
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero-ayala-descripcion {
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .hero-ayala-botones {
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === HERO SECTION === -->
+  <section class="hero-ayala">
+    <div class="hero-ayala-contenido">
+      <h1>Transformamos tu visión en realidad digital</h1>
+      
+      <p class="hero-ayala-descripcion">
+        Somos una agencia estratégica especializada en impulsar negocios mediante soluciones innovadoras de marketing digital, desarrollo web y estrategia comercial.
+      </p>
+
+      <div class="hero-ayala-botones">
+        <a href="https://arnaldoayalaestratega.com/#contacto" class="btn-ayala-primary">
+          Comenzar proyecto
+          <span class="btn-ayala-icon">→</span>
+        </a>
+        <a href="https://arnaldoayalaestratega.com/servicios" class="btn-ayala-secondary">
+          Ver servicios
+          <span class="btn-ayala-icon">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SCRIPTS JAVASCRIPT === -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      
+      // === EFECTO PARALLAX SUAVE EN SCROLL ===
+      let heroSection = document.querySelector('.hero-ayala');
+      let heroBackground = document.querySelector('.hero-ayala::before');
+      
+      window.addEventListener('scroll', function() {
+        let scrolled = window.pageYOffset;
+        let parallaxSpeed = 0.5;
+        
+        if (heroSection && scrolled < window.innerHeight) {
+          // Aplicar transformación parallax
+          heroSection.style.transform = 'translateY(' + (scrolled * parallaxSpeed) + 'px)';
+        }
+      });
+
+      // === SMOOTH SCROLL PARA ANCLAS ===
+      document.querySelectorAll('a[href^="#"], a[href*="/#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          let href = this.getAttribute('href');
+          
+          // Si el enlace contiene un ancla
+          if (href.includes('#')) {
+            let targetId = href.split('#')[1];
+            let targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+              e.preventDefault();
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }
+        });
+      });
+
+      // === OPTIMIZACIÓN DE RENDIMIENTO ===
+      // Detectar si el usuario está en un dispositivo móvil
+      let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      
+      if (isMobile) {
+        // Desactivar animaciones complejas en móviles
+        document.querySelector('.hero-ayala').style.transform = 'none';
+      }
+
+    });
+  </script>
+
+  <!-- Sitio web hecho por Arnaldo Ayala – Estratega en IA y Marketing -->
+</body>
+</html>
