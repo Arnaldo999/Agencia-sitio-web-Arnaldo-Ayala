@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agencia Comercial - Arnaldo Ayala</title>
+  <style>
+    /* === RESET Y ESTILOS GENERALES === */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #2c3e50;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* === SECCIÓN AGENCIA COMERCIAL === */
+    .seccion-agencia-ayala {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #f8fafc 0%, #e8f1f8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decoración de fondo */
+    .seccion-agencia-ayala::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 217, 255, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .seccion-agencia-ayala::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(100, 181, 246, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    /* Contenedor principal */
+    .agencia-contenedor-ayala {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header de la sección */
+    .agencia-header-ayala {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .agencia-header-ayala h2 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .agencia-header-ayala p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: #64748b;
+      max-width: 750px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Grid de servicios */
+    .servicios-grid-ayala {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+      padding: 0 20px;
+    }
+
+    /* Tarjeta individual */
+    .servicio-card-ayala {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      border: 1px solid rgba(0, 217, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Efecto hover en la tarjeta */
+    .servicio-card-ayala:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px rgba(0, 217, 255, 0.2);
+      border-color: rgba(0, 217, 255, 0.3);
+    }
+
+    /* Borde animado superior */
+    .servicio-card-ayala::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #00d9ff 0%, #64b5f6 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .servicio-card-ayala:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Contenedor del ícono */
+    .servicio-icon-ayala {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #e0f7ff 0%, #b3e5fc 100%);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .servicio-icon-ayala::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(100, 181, 246, 0.2) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .servicio-card-ayala:hover .servicio-icon-ayala {
+      transform: scale(1.1) rotate(5deg);
+      background: linear-gradient(135deg, #00d9ff 0%, #64b5f6 100%);
+    }
+
+    .servicio-card-ayala:hover .servicio-icon-ayala::after {
+      opacity: 1;
+    }
+
+    /* Ícono SVG */
+    .servicio-icon-ayala svg {
+      width: 38px;
+      height: 38px;
+      stroke: #00b8d4;
+      stroke-width: 2;
+      fill: none;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .servicio-card-ayala:hover .servicio-icon-ayala svg {
+      stroke: #ffffff;
+      transform: scale(1.1);
+    }
+
+    /* Título del servicio */
+    .servicio-card-ayala h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .servicio-card-ayala:hover h3 {
+      color: #00b8d4;
+    }
+
+    /* Descripción del servicio */
+    .servicio-card-ayala p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #64748b;
+      margin: 0 0 25px 0;
+      flex-grow: 1;
+    }
+
+    /* Botón Cotizar */
+    .btn-cotizar-ayala {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .btn-cotizar-ayala:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+      background: linear-gradient(135deg, #00ff99 0%, #00e5ff 100%);
+    }
+
+    .btn-cotizar-ayala svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-cotizar-ayala:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* Efecto de brillo en hover */
+    .servicio-card-ayala::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .servicio-card-ayala:hover::after {
+      opacity: 1;
+      animation: shine 1.5s ease-in-out;
+    }
+
+    @keyframes shine {
+      0% {
+        top: -50%;
+        right: -50%;
+      }
+      100% {
+        top: 150%;
+        right: 150%;
+      }
+    }
+
+    /* === RESPONSIVE DESIGN === */
+    @media (max-width: 1024px) {
+      .servicios-grid-ayala {
+        gap: 30px;
+      }
+
+      .servicio-card-ayala {
+        padding: 35px 25px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .seccion-agencia-ayala {
+        padding: 70px 20px;
+      }
+
+      .agencia-header-ayala {
+        margin-bottom: 50px;
+      }
+
+      .servicios-grid-ayala {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 10px;
+      }
+
+      .servicio-card-ayala {
+        padding: 30px 25px;
+      }
+
+      .servicio-icon-ayala {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+      }
+
+      .servicio-icon-ayala svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      .servicio-card-ayala h3 {
+        font-size: 1.35rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .agencia-header-ayala h2 {
+        font-size: 2rem;
+      }
+
+      .agencia-header-ayala p {
+        font-size: 0.95rem;
+      }
+
+      .servicio-card-ayala {
+        padding: 25px 20px;
+      }
+    }
+
+    /* === ANIMACIONES DE ENTRADA === */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .agencia-header-ayala {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .servicio-card-ayala:nth-child(1) {
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .servicio-card-ayala:nth-child(2) {
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .servicio-card-ayala:nth-child(3) {
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === SECCIÓN AGENCIA COMERCIAL === -->
+  <section id="servicios" class="seccion-agencia-ayala">
+    <div class="agencia-contenedor-ayala">
+      
+      <!-- Header de la sección -->
+      <div class="agencia-header-ayala">
+        <h2>Agencia Comercial</h2>
+        <p>Soluciones integrales para impulsar tu presencia digital y alcanzar tus objetivos de negocio</p>
+      </div>
+
+      <!-- Grid de servicios -->
+      <div class="servicios-grid-ayala">
+        
+        <!-- Servicio 1: Diseño Web -->
+        <article class="servicio-card-ayala">
+          <div class="servicio-icon-ayala">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
+              <path d="M2 9h20"/>
+              <path d="M8 3v6"/>
+            </svg>
+          </div>
+          <h3>Diseño Web</h3>
+          <p>Creamos sitios web modernos, responsivos y optimizados que destacan tu marca y convierten visitantes en clientes. Experiencias digitales únicas que impulsan tu negocio.</p>
+          <a href="https://arnaldoayalaestratega.com/Disenamos-tu-sitio-web" class="btn-cotizar-ayala">
+            Cotizar
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Servicio 2: Campaña Publicitaria -->
+        <article class="servicio-card-ayala">
+          <div class="servicio-icon-ayala">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3>Campaña Publicitaria</h3>
+          <p>Estrategias publicitarias integrales en redes sociales, Google Ads y medios digitales. Maximizamos tu ROI con campañas basadas en datos y resultados medibles.</p>
+          <a href="https://arnaldoayalaestratega.com/Organizamos-tus-campanas-publicitarias" class="btn-cotizar-ayala">
+            Cotizar
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Servicio 3: Automatización de Tareas con IA -->
+        <article class="servicio-card-ayala">
+          <div class="servicio-icon-ayala">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Automatización de Tareas con IA</h3>
+          <p>Implementamos soluciones de inteligencia artificial para automatizar procesos, optimizar flujos de trabajo y aumentar la productividad de tu equipo significativamente.</p>
+          <a href="https://arnaldoayalaestratega.com/Automatizamos-tus-tareas-o-procesos" class="btn-cotizar-ayala">
+            Cotizar
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- === SCRIPTS JAVASCRIPT === -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      
+      // === EFECTO PARALLAX EN DECORACIONES DE FONDO ===
+      const seccion = document.querySelector('.seccion-agencia-ayala');
+      
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const seccionTop = seccion.offsetTop;
+        const seccionHeight = seccion.offsetHeight;
+        
+        // Solo aplicar efecto cuando la sección está visible
+        if (scrolled > seccionTop - window.innerHeight && scrolled < seccionTop + seccionHeight) {
+          const offset = (scrolled - seccionTop) * 0.15;
+          seccion.style.backgroundPosition = `center ${offset}px`;
+        }
+      });
+
+      // === EFECTO DE SEGUIMIENTO DEL MOUSE EN TARJETAS ===
+      const tarjetas = document.querySelectorAll('.servicio-card-ayala');
+      
+      tarjetas.forEach(function(tarjeta) {
+        tarjeta.addEventListener('mousemove', function(e) {
+          const rect = tarjeta.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 20;
+          const rotateY = (centerX - x) / 20;
+          
+          tarjeta.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
+        });
+        
+        tarjeta.addEventListener('mouseleave', function() {
+          tarjeta.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+      });
+
+      // === ANIMACIÓN DE CONTADOR DE SERVICIOS (OPCIONAL) ===
+      // Detectar cuando la sección entra en viewport
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      tarjetas.forEach(function(tarjeta) {
+        observer.observe(tarjeta);
+      });
+
+    });
+  </script>
+
+  <!-- Sitio web hecho por Arnaldo Ayala – Estratega en IA y Marketing -->
+</body>
+</html>
