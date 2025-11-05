@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quién Soy - Arnaldo Ayala</title>
+  <style>
+    /* === RESET Y ESTILOS GENERALES === */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #2c3e50;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* === SECCIÓN QUIÉN SOY === */
+    .seccion-quiensoy-ayala {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decoración de fondo */
+    .seccion-quiensoy-ayala::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 217, 255, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .seccion-quiensoy-ayala::after {
+      content: '';
+      position: absolute;
+      bottom: -15%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    /* Contenedor principal */
+    .quiensoy-contenedor-ayala {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+
+    /* Contenido */
+    .quiensoy-contenido-ayala {
+      text-align: center;
+    }
+
+    .quiensoy-contenido-ayala h2 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .quiensoy-subtitulo-ayala {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      color: #00b8d4;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    .quiensoy-texto-ayala {
+      font-size: 1.1rem;
+      line-height: 2;
+      color: #4a5568;
+      margin-bottom: 30px;
+      text-align: left;
+      max-width: 100%;
+    }
+
+    .quiensoy-texto-ayala strong {
+      color: #0a1628;
+      font-weight: 600;
+    }
+
+    /* Destacados con iconos */
+    .destacados-lista-ayala {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 35px;
+      margin-bottom: 35px;
+    }
+
+    .destacado-item-ayala {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 20px;
+      background: rgba(0, 217, 255, 0.05);
+      border-left: 4px solid #00ff88;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .destacado-item-ayala:hover {
+      background: rgba(0, 217, 255, 0.1);
+      transform: translateX(5px);
+    }
+
+    .destacado-icon-ayala {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      fill: #00ff88;
+    }
+
+    .destacado-item-ayala span {
+      font-size: 1rem;
+      color: #2c3e50;
+      font-weight: 500;
+    }
+
+    /* Botón CTA */
+    .btn-contacto-ayala {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+      margin-top: 20px;
+    }
+
+    .btn-contacto-ayala:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 255, 136, 0.5);
+    }
+
+    .btn-contacto-ayala svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-contacto-ayala:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* === RESPONSIVE DESIGN === */
+    @media (max-width: 768px) {
+      .seccion-quiensoy-ayala {
+        padding: 70px 20px;
+      }
+
+      .quiensoy-contenedor-ayala {
+        padding: 0 15px;
+      }
+
+      .quiensoy-contenido-ayala h2 {
+        font-size: 2.2rem;
+      }
+
+      .quiensoy-texto-ayala {
+        font-size: 1rem;
+      }
+
+      .btn-contacto-ayala {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .quiensoy-contenido-ayala h2 {
+        font-size: 2rem;
+      }
+
+      .quiensoy-texto-ayala {
+        font-size: 0.95rem;
+        line-height: 1.8;
+      }
+
+      .destacado-item-ayala {
+        padding: 12px 15px;
+      }
+
+      .destacado-item-ayala span {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* === ANIMACIONES DE ENTRADA === */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .quiensoy-contenido-ayala {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .destacado-item-ayala:nth-child(1) {
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
+
+    .destacado-item-ayala:nth-child(2) {
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+
+    .destacado-item-ayala:nth-child(3) {
+      animation: fadeInUp 0.6s ease-out 0.5s both;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === SECCIÓN QUIÉN SOY === -->
+  <section id="quiensoy" class="seccion-quiensoy-ayala">
+    <div class="quiensoy-contenedor-ayala">
+
+      <!-- Contenido -->
+      <div class="quiensoy-contenido-ayala">
+        <h2>Quién Soy</h2>
+        <p class="quiensoy-subtitulo-ayala">De las calles al mundo digital</p>
+
+        <p class="quiensoy-texto-ayala">
+          Soy <strong>Arnaldo Ayala</strong>, y mi historia comenzó hace 5 años, en 2019, justo cuando el mundo enfrentaba uno de sus mayores desafíos. Antes de adentrarme en el universo digital, mi día a día transcurría en las calles, trabajando como preventista en ventas tradicionales. Cada mañana significaba recorrer kilómetros, construir relaciones cara a cara y aprender el arte de conectar con las personas.
+        </p>
+
+        <p class="quiensoy-texto-ayala">
+          Pero la pandemia cambió todo. Lo que para muchos fue una pausa, para mí se convirtió en el inicio de una transformación. Decidí que era momento de evolucionar, de llevar toda esa experiencia en ventas y relaciones humanas al mundo digital. Así comenzó mi camino en <strong>marketing digital, desarrollo web e inteligencia artificial</strong>.
+        </p>
+
+        <p class="quiensoy-texto-ayala">
+          No fue fácil. Cada conocimiento fue adquirido con esfuerzo, dedicación y muchas noches de aprendizaje continuo. Cada cliente que confió en mí se convirtió en una oportunidad para demostrar que con pasión y compromiso, los resultados llegan. Hoy, después de 5 años de crecimiento constante, tengo el privilegio de ayudar a emprendedores y empresas a transformar su presencia digital y alcanzar sus objetivos.
+        </p>
+
+        <div class="destacados-lista-ayala">
+          <div class="destacado-item-ayala">
+            <svg class="destacado-icon-ayala" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span>5 años de experiencia en transformación digital</span>
+          </div>
+
+          <div class="destacado-item-ayala">
+            <svg class="destacado-icon-ayala" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span>Especializado en IA, marketing digital y desarrollo web</span>
+          </div>
+
+          <div class="destacado-item-ayala">
+            <svg class="destacado-icon-ayala" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span>Más de 47 clientes satisfechos y proyectos exitosos</span>
+          </div>
+        </div>
+
+        <a href="https://wa.link/hleyob" class="btn-contacto-ayala">
+          Trabajemos juntos
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- === SCRIPTS JAVASCRIPT === -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      
+      // === ANIMACIÓN DE ENTRADA CON INTERSECTION OBSERVER ===
+      const elementos = document.querySelectorAll('.quiensoy-contenido-ayala, .destacado-item-ayala');
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      elementos.forEach(function(elemento) {
+        observer.observe(elemento);
+      });
+
+    });
+  </script>
+
+  <!-- Sitio web hecho por Arnaldo Ayala – Estratega en IA y Marketing -->
+</body>
+</html>
