@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planes de Diseño Web - Arnaldo Ayala</title>
+  <style>
+    /* === RESET Y ESTILOS GENERALES === */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #2c3e50;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* === HERO SECTION === */
+    .hero-diseno-web-ayala {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -80px;
+      padding-top: 80px;
+    }
+
+    /* Imagen de fondo con parallax */
+    .hero-diseno-web-ayala::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      background-image: url('https://arnaldoayalaestratega.com/wp-content/uploads/2025/11/Generated-Image-November-05-2025-8_34AM.webp');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      z-index: 1;
+      will-change: transform;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      filter: brightness(1.1) contrast(1.15) saturate(1.1);
+    }
+
+    /* Overlay oscuro con gradiente ajustado */
+    .hero-diseno-web-ayala::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg, 
+        rgba(10, 31, 46, 0.75) 0%, 
+        rgba(13, 45, 63, 0.65) 50%,
+        rgba(10, 31, 46, 0.8) 100%
+      );
+      z-index: 2;
+    }
+
+    /* Contenido del hero */
+    .hero-contenido-ayala {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: #ffffff;
+      max-width: 1000px;
+      padding: 0 20px;
+    }
+
+    .hero-contenido-ayala h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 30px;
+      color: #ffffff;
+      text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8), 
+                   0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-contenido-ayala h1 .highlight {
+      display: inline-block;
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 6px;
+      text-shadow: 
+        0 0 10px rgba(0, 255, 136, 0.4),
+        3px 3px 8px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    .hero-contenido-ayala h1 .highlight:hover {
+      transform: scale(1.15);
+    }
+
+    .hero-contenido-ayala h1 .highlight-atraer {
+      color: #00ff88;
+      text-decoration-color: #00ff88;
+    }
+
+    .hero-contenido-ayala h1 .highlight-impactar {
+      color: #00d9ff;
+      text-decoration-color: #00d9ff;
+    }
+
+    .hero-contenido-ayala h1 .highlight-convertir {
+      color: #00ff88;
+      text-decoration-color: #00ff88;
+    }
+
+    @keyframes zoomPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    .hero-contenido-ayala h1 .highlight-atraer {
+      animation: zoomPulse 4s ease-in-out infinite;
+    }
+
+    .hero-contenido-ayala h1 .highlight-impactar {
+      animation: zoomPulse 4s ease-in-out 1.3s infinite;
+    }
+
+    .hero-contenido-ayala h1 .highlight-convertir {
+      animation: zoomPulse 4s ease-in-out 2.6s infinite;
+    }
+
+    .hero-contenido-ayala p {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      color: #f0f9ff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .btn-hero-ayala {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 36px;
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+    }
+
+    .btn-hero-ayala:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 255, 136, 0.5);
+    }
+
+    .btn-hero-ayala svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    /* === SECCIÓN TÍTULO INTRO === */
+    .seccion-titulo-intro-ayala {
+      padding: 80px 20px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .seccion-titulo-intro-ayala h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .seccion-titulo-intro-ayala p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #64748b;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* === SECCIÓN DE PLANES === */
+    .seccion-planes-ayala {
+      padding: 100px 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .planes-contenedor-ayala {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Grid de tarjetas */
+    .planes-grid-ayala {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+
+    /* Tarjeta de plan */
+    .plan-card-ayala {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      border: 2px solid #e5e7eb;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plan-card-ayala:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Tarjeta destacada (Plan 2) */
+    .plan-card-ayala.destacado {
+      border: 3px solid #00d9ff;
+      box-shadow: 0 10px 40px rgba(0, 217, 255, 0.2);
+    }
+
+    /* Título del plan */
+    .plan-titulo-ayala {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #00b8d4;
+      margin-bottom: 10px;
+    }
+
+    /* Subtítulo */
+    .plan-subtitulo-ayala {
+      font-size: 1rem;
+      color: #64748b;
+      margin-bottom: 30px;
+    }
+
+    /* Precio */
+    .plan-precio-ayala {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 30px;
+    }
+
+    .plan-precio-ayala span {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    /* Lista de características */
+    .plan-caracteristicas-ayala {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px 0;
+      flex-grow: 1;
+    }
+
+    .plan-caracteristicas-ayala li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      color: #4a5568;
+      line-height: 1.6;
+    }
+
+    .plan-caracteristicas-ayala li svg {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      stroke: #00ff88;
+      fill: none;
+      margin-top: 2px;
+    }
+
+    /* Botón del plan */
+    .btn-plan-ayala {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      background-color: #0a1628;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      border: 2px solid #0a1628;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-plan-ayala:hover {
+      background-color: transparent;
+      color: #0a1628;
+    }
+
+    /* Botón del plan destacado */
+    .plan-card-ayala.destacado .btn-plan-ayala {
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+    }
+
+    .plan-card-ayala.destacado .btn-plan-ayala:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+    }
+
+    /* === SECCIÓN CTA FINAL === */
+    .seccion-cta-ayala {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a1f2e 0%, #0d2d3f 100%);
+      text-align: center;
+    }
+
+    .cta-contenido-ayala {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cta-contenido-ayala h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .cta-contenido-ayala p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #b8d4e0;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    /* Botones CTA */
+    .cta-botones-ayala {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-primary-ayala {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+    }
+
+    .btn-cta-primary-ayala:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 255, 136, 0.5);
+    }
+
+    .btn-cta-primary-ayala svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .btn-cta-secondary-ayala {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: transparent;
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      border: 2px solid #00d9ff;
+      transition: all 0.3s ease;
+    }
+
+    .btn-cta-secondary-ayala:hover {
+      background: rgba(0, 217, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .btn-cta-secondary-ayala svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    /* === SECCIÓN TESTIMONIOS === */
+    .seccion-testimonios-landing-ayala {
+      padding: 80px 20px;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      overflow: hidden;
+    }
+
+    .testimonios-landing-contenedor-ayala {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonios-landing-contenedor-ayala h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 50px;
+    }
+
+    /* Contenedor del carrusel */
+    .testimonios-carrusel-wrapper-ayala {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .testimonios-carrusel-ayala {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 20px 0;
+    }
+
+    .testimonios-carrusel-ayala::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonio-landing-card-ayala {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border-left: 4px solid #00ff88;
+      min-width: 100%;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .testimonio-landing-card-ayala:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .testimonio-landing-texto-ayala {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #4a5568;
+      font-style: italic;
+      margin-bottom: 25px;
+    }
+
+    .testimonio-landing-autor-ayala {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0a1628;
+      margin-bottom: 5px;
+    }
+
+    .testimonio-landing-cargo-ayala {
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+
+    .testimonio-landing-ubicacion-ayala {
+      font-size: 0.85rem;
+      color: #00b8d4;
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .testimonio-landing-ubicacion-ayala svg {
+      width: 14px;
+      height: 14px;
+      fill: #00b8d4;
+    }
+
+    /* Flechas de navegación (solo desktop) */
+    .carrusel-btn-ayala {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .carrusel-btn-ayala:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+    }
+
+    .carrusel-btn-ayala svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    .carrusel-btn-prev-ayala {
+      left: -25px;
+    }
+
+    .carrusel-btn-next-ayala {
+      right: -25px;
+    }
+
+    /* Indicadores de posición (solo móvil) */
+    .carrusel-dots-ayala {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .carrusel-dot-ayala {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carrusel-dot-ayala.active {
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      width: 30px;
+      border-radius: 5px;
+    }
+
+    /* Desktop: mostrar flechas, grid de tarjetas */
+    @media (min-width: 1024px) {
+      .testimonios-carrusel-ayala {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        overflow-x: visible;
+      }
+
+      .testimonio-landing-card-ayala {
+        min-width: auto;
+      }
+
+      .carrusel-btn-ayala {
+        display: flex;
+      }
+
+      .carrusel-dots-ayala {
+        display: none;
+      }
+
+      /* Ocultar tarjetas que no están en la página actual */
+      .testimonios-carrusel-ayala.page-0 .testimonio-landing-card-ayala:nth-child(n+3) {
+        display: none;
+      }
+
+      .testimonios-carrusel-ayala.page-1 .testimonio-landing-card-ayala:nth-child(-n+2),
+      .testimonios-carrusel-ayala.page-1 .testimonio-landing-card-ayala:nth-child(n+5) {
+        display: none;
+      }
+
+      .testimonios-carrusel-ayala.page-2 .testimonio-landing-card-ayala:nth-child(-n+4) {
+        display: none;
+      }
+    }
+
+    /* === SECCIÓN ESTADÍSTICAS === */
+    .seccion-estadisticas-ayala {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a1f2e 0%, #0d2d3f 100%);
+    }
+
+    .estadisticas-contenedor-ayala {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .estadisticas-contenedor-ayala h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 50px;
+    }
+
+    .estadisticas-grid-ayala {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .estadistica-item-ayala {
+      padding: 30px 20px;
+    }
+
+    .estadistica-numero-ayala {
+      font-size: clamp(3rem, 6vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .estadistica-label-ayala {
+      font-size: 1.1rem;
+      color: #b8d4e0;
+      font-weight: 500;
+    }
+
+    /* Información de contacto */
+    .cta-info-contacto-ayala {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cta-info-item-ayala {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #b8d4e0;
+      font-size: 1rem;
+    }
+
+    .cta-info-item-ayala svg {
+      width: 20px;
+      height: 20px;
+      stroke: #00ff88;
+      fill: none;
+    }
+
+    .cta-info-item-ayala a {
+      color: #b8d4e0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .cta-info-item-ayala a:hover {
+      color: #00ff88;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 1024px) {
+      .planes-grid-ayala {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Hero responsive */
+      .hero-diseno-web-ayala::before {
+        background-attachment: scroll;
+        height: 100%;
+      }
+
+      .hero-diseno-web-ayala {
+        min-height: 500px;
+      }
+
+      .hero-contenido-ayala h1 {
+        font-size: clamp(2rem, 7vw, 3rem);
+      }
+
+      .hero-contenido-ayala p {
+        font-size: 1.1rem;
+      }
+
+      .btn-hero-ayala {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 28px;
+        font-size: 1.1rem;
+      }
+
+      /* Secciones */
+      .seccion-titulo-intro-ayala {
+        padding: 60px 20px;
+      }
+
+      .seccion-planes-ayala {
+        padding: 70px 20px;
+      }
+
+      .plan-card-ayala {
+        padding: 35px 25px;
+      }
+
+      .plan-precio-ayala {
+        font-size: 2.2rem;
+      }
+
+      .cta-botones-ayala {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-cta-primary-ayala,
+      .btn-cta-secondary-ayala {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .cta-info-contacto-ayala {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      /* Estadísticas responsive */
+      .estadisticas-grid-ayala {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .testimonio-landing-card-ayala {
+        padding: 30px 25px;
+      }
+
+      /* Móvil: scroll horizontal automático */
+      .testimonios-carrusel-ayala {
+        scroll-snap-type: x mandatory;
+        padding: 20px 10px;
+      }
+
+      .testimonio-landing-card-ayala {
+        scroll-snap-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-contenido-ayala h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-contenido-ayala p {
+        font-size: 1rem;
+      }
+
+      .seccion-titulo-intro-ayala h2 {
+        font-size: 1.8rem;
+      }
+
+      .plan-card-ayala {
+        padding: 30px 20px;
+      }
+
+      .plan-titulo-ayala {
+        font-size: 1.4rem;
+      }
+
+      .plan-precio-ayala {
+        font-size: 2rem;
+      }
+    }
+
+    /* === ANIMACIONES === */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .plan-card-ayala:nth-child(1) {
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .plan-card-ayala:nth-child(2) {
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+
+    .plan-card-ayala:nth-child(3) {
+      animation: fadeInUp 0.6s ease-out 0.6s both;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === HERO SECTION === -->
+  <section class="hero-diseno-web-ayala">
+    <div class="hero-contenido-ayala">
+      <h1>Diseñamos tu sitio web para <span class="highlight highlight-atraer">atraer</span>, <span class="highlight highlight-impactar">impactar</span> y <span class="highlight highlight-convertir">convertir</span></h1>
+      <p>Diseños a medida, rápidos, optimizados y con identidad propia. Elevá tu marca con presencia digital profesional.</p>
+      <a href="https://wa.link/50ehke" class="btn-hero-ayala">
+        Solicitar Cotización
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- === SECCIÓN TÍTULO INTRO === -->
+  <section class="seccion-titulo-intro-ayala">
+    <h2>Elegí el plan que mejor se adapte a tu proyecto</h2>
+    <p>Soluciones profesionales para cada tipo de negocio</p>
+  </section>
+
+  <!-- === SECCIÓN DE PLANES === -->
+  <section class="seccion-planes-ayala">
+    <div class="planes-contenedor-ayala">
+      
+      <div class="planes-grid-ayala">
+        
+        <!-- Plan 1: Web Básica / Emprendedor -->
+        <article class="plan-card-ayala">
+          <h3 class="plan-titulo-ayala">Web Básica / Emprendedor</h3>
+          <p class="plan-subtitulo-ayala">Diseño a medida con branding personalizado</p>
+          
+          <div class="plan-precio-ayala">
+            $150.000 <span>ARS</span>
+          </div>
+
+          <ul class="plan-caracteristicas-ayala">
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Diseño a medida con branding personalizado</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Hasta 5 secciones</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Responsive + adaptable a móviles</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Seguridad web (SSL, antivirus, monitoreo)</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Backup continuo del sitio</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>SEO y optimización de velocidad</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.link/50ehke" class="btn-plan-ayala">Elegir Plan</a>
+        </article>
+
+        <!-- Plan 2: Web Profesional / PyME (DESTACADO) -->
+        <article class="plan-card-ayala destacado">
+          <h3 class="plan-titulo-ayala">Web Profesional / PyME</h3>
+          <p class="plan-subtitulo-ayala">Diseño a medida con branding personalizado</p>
+          
+          <div class="plan-precio-ayala">
+            $200.000 <span>ARS</span>
+          </div>
+
+          <ul class="plan-caracteristicas-ayala">
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Diseño a medida con branding personalizado</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Hasta 20 secciones internas</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Estructura estratégica AIDA</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Formularios personalizados y redes sociales</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Seguridad avanzada y backups automáticos</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>SEO técnico + rendimiento optimizado</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.link/50ehke" class="btn-plan-ayala">Elegir Plan</a>
+        </article>
+
+        <!-- Plan 3: Web Avanzada / Tienda Online -->
+        <article class="plan-card-ayala">
+          <h3 class="plan-titulo-ayala">Web Avanzada / Tienda Online</h3>
+          <p class="plan-subtitulo-ayala">Diseño a medida con branding personalizado</p>
+          
+          <div class="plan-precio-ayala">
+            Desde $300.000 <span>ARS</span>
+          </div>
+
+          <ul class="plan-caracteristicas-ayala">
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Diseño a medida con branding personalizado</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Secciones y páginas ilimitadas</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Tienda online o sistema de reservas</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Pagos online integrados</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>SEO avanzado y carga optimizada</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+              <span>Capacitación al cliente</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.link/50ehke" class="btn-plan-ayala">Elegir Plan</a>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- === SECCIÓN TESTIMONIOS === -->
+  <section class="seccion-testimonios-landing-ayala">
+    <div class="testimonios-landing-contenedor-ayala">
+      <h2>Lo que dicen nuestros clientes</h2>
+      
+      <div class="testimonios-carrusel-wrapper-ayala">
+        <!-- Botón anterior (solo desktop) -->
+        <button class="carrusel-btn-ayala carrusel-btn-prev-ayala" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </button>
+
+        <div class="testimonios-carrusel-ayala page-0">
+          
+          <!-- Testimonio 1: Denis Sotelo - Misiones -->
+          <article class="testimonio-landing-card-ayala">
+            <p class="testimonio-landing-texto-ayala">
+              "Arnaldo transformó completamente nuestra presencia digital. Nos ayudó a crear una web atractiva para nuestro camping y además diseñó estrategias de redes sociales que incrementaron nuestras reservas de forma notable."
+            </p>
+            <div class="testimonio-landing-autor-ayala">Denis Sotelo</div>
+            <div class="testimonio-landing-cargo-ayala">Camping Hugo y Cefe</div>
+            <div class="testimonio-landing-ubicacion-ayala">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>San Ignacio, Misiones</span>
+            </div>
+          </article>
+
+          <!-- Testimonio 2: María González - Buenos Aires -->
+          <article class="testimonio-landing-card-ayala">
+            <p class="testimonio-landing-texto-ayala">
+              "Increíble profesional. Mi tienda online pasó de ser un proyecto estancado a un e-commerce funcional y atractivo. Las ventas aumentaron un 200% en los primeros tres meses. Totalmente recomendable."
+            </p>
+            <div class="testimonio-landing-autor-ayala">María González</div>
+            <div class="testimonio-landing-cargo-ayala">Dueña de Tienda Luna Bohemia</div>
+            <div class="testimonio-landing-ubicacion-ayala">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Buenos Aires, CABA</span>
+            </div>
+          </article>
+
+          <!-- Testimonio 3: Roberto Paz - Córdoba -->
+          <article class="testimonio-landing-card-ayala">
+            <p class="testimonio-landing-texto-ayala">
+              "Arnaldo no solo diseñó nuestra web, nos dio una identidad digital completa. Desde el logo hasta la estrategia de contenidos. Ahora recibimos consultas todos los días. El ROI fue inmediato."
+            </p>
+            <div class="testimonio-landing-autor-ayala">Roberto Paz</div>
+            <div class="testimonio-landing-cargo-ayala">Director de Estudio Contable RP</div>
+            <div class="testimonio-landing-ubicacion-ayala">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Córdoba Capital</span>
+            </div>
+          </article>
+
+          <!-- Testimonio 4: Laura Fernández - Mendoza -->
+          <article class="testimonio-landing-card-ayala">
+            <p class="testimonio-landing-texto-ayala">
+              "Trabajar con Arnaldo fue la mejor decisión para mi emprendimiento. Entendió perfectamente mi visión y la plasmó en una web moderna y funcional. Mis clientes siempre me felicitan por el sitio."
+            </p>
+            <div class="testimonio-landing-autor-ayala">Laura Fernández</div>
+            <div class="testimonio-landing-cargo-ayala">Fundadora de Viñedos del Valle</div>
+            <div class="testimonio-landing-ubicacion-ayala">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Mendoza</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Botón siguiente (solo desktop) -->
+        <button class="carrusel-btn-ayala carrusel-btn-next-ayala" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Indicadores (solo móvil) -->
+      <div class="carrusel-dots-ayala">
+        <span class="carrusel-dot-ayala active" data-index="0"></span>
+        <span class="carrusel-dot-ayala" data-index="1"></span>
+        <span class="carrusel-dot-ayala" data-index="2"></span>
+        <span class="carrusel-dot-ayala" data-index="3"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECCIÓN ESTADÍSTICAS === -->
+  <section class="seccion-estadisticas-ayala">
+    <div class="estadisticas-contenedor-ayala">
+      <h2>Nuestros Resultados</h2>
+      
+      <div class="estadisticas-grid-ayala">
+        <div class="estadistica-item-ayala">
+          <div class="estadistica-numero-ayala" data-target="50">0+</div>
+          <div class="estadistica-label-ayala">Proyectos Exitosos</div>
+        </div>
+        
+        <div class="estadistica-item-ayala">
+          <div class="estadistica-numero-ayala" data-target="47">0+</div>
+          <div class="estadistica-label-ayala">Clientes Satisfechos</div>
+        </div>
+        
+        <div class="estadistica-item-ayala">
+          <div class="estadistica-numero-ayala" data-target="98">0%</div>
+          <div class="estadistica-label-ayala">Tasa de Retención</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SECCIÓN CTA FINAL === -->
+  <section class="seccion-cta-ayala">
+    <div class="cta-contenido-ayala">
+      <h2>¿Listo para transformar tu presencia digital?</h2>
+      <p>Contactanos hoy y descubrí cómo podemos llevar tu proyecto al siguiente nivel</p>
+
+      <div class="cta-botones-ayala">
+        <a href="mailto:contacto@arnaldoayalaestratega.com" class="btn-cta-primary-ayala">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Enviar Email
+        </a>
+        <a href="https://wa.link/50ehke" class="btn-cta-secondary-ayala">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <div class="cta-info-contacto-ayala">
+        <div class="cta-info-item-ayala">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <a href="mailto:contacto@arnaldoayalaestratega.com">contacto@arnaldoayalaestratega.com</a>
+        </div>
+        <div class="cta-info-item-ayala">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span>+54 9 11 XXXX-XXXX</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SCRIPTS JAVASCRIPT === -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      
+      // === EFECTO PARALLAX EN HERO ===
+      const heroSection = document.querySelector('.hero-diseno-web-ayala');
+      
+      if (heroSection) {
+        window.addEventListener('scroll', function() {
+          const scrolled = window.pageYOffset;
+          if (scrolled < window.innerHeight) {
+            const parallaxSpeed = 0.5;
+            heroSection.style.transform = 'translateY(' + (scrolled * parallaxSpeed) + 'px)';
+          }
+        });
+      }
+
+      // === ANIMACIÓN AL HACER SCROLL ===
+      const cards = document.querySelectorAll('.plan-card-ayala');
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      cards.forEach(function(card) {
+        observer.observe(card);
+      });
+
+      // === ANIMACIÓN DE CONTADORES ===
+      const contadores = document.querySelectorAll('.estadistica-numero-ayala');
+      
+      const observerContadores = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !entry.target.classList.contains('contado')) {
+            entry.target.classList.add('contado');
+            animarContador(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.5
+      });
+
+      contadores.forEach(function(contador) {
+        observerContadores.observe(contador);
+      });
+
+      function animarContador(elemento) {
+        const target = parseInt(elemento.getAttribute('data-target'));
+        const isPercentage = elemento.textContent.includes('%');
+        const hasPlus = elemento.textContent.includes('+');
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(function() {
+          current += increment;
+          if (current >= target) {
+            elemento.textContent = target + (isPercentage ? '%' : '+');
+            clearInterval(timer);
+          } else {
+            elemento.textContent = Math.floor(current) + (isPercentage ? '%' : '+');
+          }
+        }, 16);
+      }
+
+      // === CARRUSEL DE TESTIMONIOS ===
+      const carrusel = document.querySelector('.testimonios-carrusel-ayala');
+      const btnPrev = document.querySelector('.carrusel-btn-prev-ayala');
+      const btnNext = document.querySelector('.carrusel-btn-next-ayala');
+      const dots = document.querySelectorAll('.carrusel-dot-ayala');
+      const cards = document.querySelectorAll('.testimonio-landing-card-ayala');
+      
+      let currentPage = 0;
+      const isMobile = window.innerWidth < 1024;
+      const totalPages = isMobile ? cards.length : Math.ceil(cards.length / 2);
+      let autoScrollInterval;
+
+      // Función para actualizar la posición del carrusel
+      function updateCarousel(index) {
+        currentPage = index;
+
+        if (isMobile) {
+          // Móvil: scroll horizontal
+          const cardWidth = cards[0].offsetWidth;
+          const gap = 30;
+          carrusel.scrollTo({
+            left: (cardWidth + gap) * index,
+            behavior: 'smooth'
+          });
+
+          // Actualizar dots
+          dots.forEach(function(dot, i) {
+            if (i === index) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        } else {
+          // Desktop: cambiar página (grid)
+          carrusel.className = 'testimonios-carrusel-ayala page-' + index;
+        }
+      }
+
+      // Navegación con flechas (desktop)
+      if (btnPrev && btnNext) {
+        btnPrev.addEventListener('click', function() {
+          currentPage = (currentPage - 1 + totalPages) % totalPages;
+          updateCarousel(currentPage);
+        });
+
+        btnNext.addEventListener('click', function() {
+          currentPage = (currentPage + 1) % totalPages;
+          updateCarousel(currentPage);
+        });
+      }
+
+      // Click en dots (móvil)
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          const index = parseInt(this.getAttribute('data-index'));
+          updateCarousel(index);
+        });
+      });
+
+      // Auto-scroll en móvil
+      if (isMobile) {
+        autoScrollInterval = setInterval(function() {
+          currentPage = (currentPage + 1) % totalPages;
+          updateCarousel(currentPage);
+        }, 5000); // Cambia cada 5 segundos
+
+        // Pausar auto-scroll al interactuar
+        carrusel.addEventListener('touchstart', function() {
+          clearInterval(autoScrollInterval);
+        });
+
+        // Reanudar auto-scroll después de 10 segundos sin interacción
+        carrusel.addEventListener('touchend', function() {
+          setTimeout(function() {
+            autoScrollInterval = setInterval(function() {
+              currentPage = (currentPage + 1) % totalPages;
+              updateCarousel(currentPage);
+            }, 5000);
+          }, 10000);
+        });
+
+        // Actualizar dots al hacer scroll manual
+        carrusel.addEventListener('scroll', function() {
+          const cardWidth = cards[0].offsetWidth;
+          const scrollPosition = carrusel.scrollLeft;
+          const index = Math.round(scrollPosition / (cardWidth + 30));
+          
+          dots.forEach(function(dot, i) {
+            if (i === index) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        });
+      }
+
+    });
+  </script>
+
+  <!-- Sitio web hecho por Arnaldo Ayala – Estratega en IA y Marketing -->
+</body>
+</html>
