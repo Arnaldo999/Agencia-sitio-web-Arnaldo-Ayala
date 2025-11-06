@@ -34,26 +34,11 @@
       color: #fff;
       overflow: hidden;
       margin: 0;
-    }
-
-    /* Imagen de fondo con parallax */
-    .hero-ayala::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 120%;
       background-image: url('https://arnaldoayalaestratega.com/wp-content/uploads/2025/11/Generated-Image-November-06-2025-6_34AM.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      z-index: 1;
-      will-change: transform;
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-      filter: brightness(1.1) contrast(1.15) saturate(1.1);
     }
 
     /* Overlay oscuro con gradiente */
@@ -70,12 +55,12 @@
         rgba(13, 45, 63, 0.65) 50%,
         rgba(10, 31, 46, 0.8) 100%
       );
-      z-index: 2;
+      z-index: 1;
     }
 
     .hero-content {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       max-width: 900px;
     }
 
@@ -464,6 +449,7 @@
 
     .faq-question:hover {
       background: #f9f9f9;
+      color: #0a1628;
     }
 
     .faq-toggle {
@@ -494,6 +480,7 @@
       font-size: 3rem;
       margin-bottom: 20px;
       font-weight: 800;
+      color: #ffffff;
     }
 
     .cta-final p {
@@ -521,12 +508,8 @@
     /* === RESPONSIVE === */
     @media (max-width: 768px) {
       /* Hero responsive */
-      .hero-ayala::before {
-        background-attachment: scroll;
-        height: 100%;
-      }
-
       .hero-ayala {
+        background-attachment: scroll;
         min-height: 500px;
       }
 
