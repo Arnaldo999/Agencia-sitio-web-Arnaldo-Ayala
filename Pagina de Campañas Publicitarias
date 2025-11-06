@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campañas Publicitarias - Agencia Arnaldo Ayala</title>
+  <style>
+    /* === RESET Y ESTILOS GENERALES === */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #2c3e50;
+      background-color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* === HERO SECTION === */
+    .hero-ayala {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    /* Imagen de fondo con parallax */
+    .hero-ayala::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      background-image: url('https://arnaldoayalaestratega.com/wp-content/uploads/2025/11/Generated-Image-November-06-2025-6_34AM.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      z-index: 1;
+      will-change: transform;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      filter: brightness(1.1) contrast(1.15) saturate(1.1);
+    }
+
+    /* Overlay oscuro con gradiente */
+    .hero-ayala::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg, 
+        rgba(10, 31, 46, 0.75) 0%, 
+        rgba(13, 45, 63, 0.65) 50%,
+        rgba(10, 31, 46, 0.8) 100%
+      );
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+    }
+
+    .hero-ayala h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: #ffffff;
+      text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8), 
+                   0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-ayala .subtitulo {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-weight: 300;
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-ayala .destacado {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #00ff88;
+      margin-bottom: 35px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 18px 45px;
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 255, 136, 0.5);
+    }
+
+    /* === SECCIONES GENERALES === */
+    .seccion-ayala {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .titulo-seccion {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0a1628;
+      font-weight: 800;
+    }
+
+    .subtitulo-seccion {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #64748b;
+      margin-bottom: 50px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* === PROBLEMA (ATENCIÓN) === */
+    .problema-ayala {
+      background: #f8fafc;
+    }
+
+    .problema-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .problema-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+      border-top: 4px solid #00d9ff;
+    }
+
+    .problema-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .problema-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .problema-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #0a1628;
+    }
+
+    /* === SOLUCIÓN (INTERÉS) === */
+    .solucion-ayala {
+      background: #fff;
+    }
+
+    .solucion-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .solucion-content p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .solucion-content .destacado-verde {
+      color: #00ff88;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+
+    /* === BENEFICIOS (DESEO) === */
+    .beneficios-ayala {
+      background: linear-gradient(135deg, #0a1f2e 0%, #0d2d3f 100%);
+      color: #fff;
+    }
+
+    .beneficios-ayala .titulo-seccion {
+      color: #fff;
+    }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .beneficio-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .beneficio-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .beneficio-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #00ff88;
+    }
+
+    .beneficio-item p {
+      color: #b8d4e0;
+    }
+
+    /* === PAQUETES === */
+    .paquetes-ayala {
+      background: #f8fafc;
+    }
+
+    .paquetes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .paquete-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+      border-top: 5px solid #00b8d4;
+    }
+
+    .paquete-card:nth-child(2) {
+      border-top-color: #00ff88;
+      transform: scale(1.05);
+    }
+
+    .paquete-card:nth-child(3) {
+      border-top-color: #00d9ff;
+    }
+
+    .paquete-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .badge-popular {
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .paquete-card h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #0a1628;
+    }
+
+    .paquete-precio {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #00b8d4;
+      margin-bottom: 10px;
+    }
+
+    .paquete-card:nth-child(2) .paquete-precio {
+      color: #00ff88;
+    }
+
+    .paquete-card:nth-child(3) .paquete-precio {
+      color: #00d9ff;
+    }
+
+    .paquete-detalle {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .objetivo-tag {
+      background: #00b8d4;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 25px;
+    }
+
+    .paquete-card:nth-child(2) .objetivo-tag {
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+    }
+
+    .paquete-card:nth-child(3) .objetivo-tag {
+      background: #00d9ff;
+    }
+
+    .paquete-lista {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .paquete-lista li {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .paquete-lista li::before {
+      content: '✅';
+      position: absolute;
+      left: 0;
+    }
+
+    .btn-paquete {
+      display: inline-block;
+      padding: 15px 35px;
+      background: #0a1628;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border: 2px solid #0a1628;
+    }
+
+    .paquete-card:nth-child(2) .btn-paquete {
+      background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+      color: #0a1628;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+    }
+
+    .paquete-card:nth-child(3) .btn-paquete {
+      background: #00d9ff;
+      color: #0a1628;
+      border-color: #00d9ff;
+    }
+
+    .btn-paquete:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* === TESTIMONIOS === */
+    .testimonios-ayala {
+      background: #fff;
+    }
+
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .testimonio-card {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 15px;
+      border-left: 5px solid #00ff88;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .testimonio-card p {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .testimonio-autor {
+      font-weight: 700;
+      color: #0a1628;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .testimonio-roi {
+      color: #00ff88;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* === FAQ === */
+    .faq-ayala {
+      background: #f8fafc;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #fff;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      border-left: 4px solid #00d9ff;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+      border: none;
+      text-align: left;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+      color: #0a1628;
+    }
+
+    .faq-question:hover {
+      background: #f9f9f9;
+    }
+
+    .faq-toggle {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+      color: #00d9ff;
+    }
+
+    .faq-answer {
+      padding: 0 20px 20px 20px;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .faq-answer[hidden] {
+      display: none;
+    }
+
+    /* === CTA FINAL === */
+    .cta-final {
+      background: linear-gradient(135deg, #0a1f2e 0%, #0d2d3f 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .cta-final h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .cta-final p {
+      font-size: 1.3rem;
+      margin-bottom: 35px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #b8d4e0;
+    }
+
+    /* === FOOTER === */
+    .footer-ayala {
+      background: #0a1628;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .footer-ayala p {
+      margin-bottom: 10px;
+      color: #b8d4e0;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      /* Hero responsive */
+      .hero-ayala::before {
+        background-attachment: scroll;
+        height: 100%;
+      }
+
+      .hero-ayala {
+        min-height: 500px;
+      }
+
+      .hero-ayala h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-ayala .subtitulo {
+        font-size: 1.2rem;
+      }
+
+      .titulo-seccion {
+        font-size: 2rem;
+      }
+
+      .paquetes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .paquete-card:nth-child(2) {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-ayala h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-ayala .subtitulo {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === HERO SECTION === -->
+  <section class="hero-ayala">
+    <div class="hero-content">
+      <h1>🚀 Transformá Tu Negocio con Campañas Publicitarias que SÍ Convierten</h1>
+      <p class="subtitulo">Dejá de gastar dinero en publicidad que no funciona</p>
+      <p class="destacado">Estrategias probadas · ROI medible · Resultados reales</p>
+      <a href="https://wa.link/bmcp0n" class="btn-cta" target="_blank">📱 Solicitar Cotización AHORA</a>
+    </div>
+  </section>
+
+  <!-- === PROBLEMA (ATENCIÓN) === -->
+  <section class="seccion-ayala problema-ayala">
+    <h2 class="titulo-seccion">¿Te Suena Familiar Alguno de Estos Problemas?</h2>
+    <p class="subtitulo-seccion">Si estás luchando con esto, estás en el lugar correcto...</p>
+    <div class="problema-grid">
+      <div class="problema-card">
+        <div class="problema-icon">😤</div>
+        <h3>Gastás en publicidad pero NO ves ventas</h3>
+        <p>Invertís mes a mes y sentís que tirás el dinero a la basura</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">😵</div>
+        <h3>No sabés cómo llegar a tu cliente ideal</h3>
+        <p>Tus anuncios llegan a cualquiera menos a quien realmente compra</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">😩</div>
+        <h3>La competencia te está aplastando</h3>
+        <p>Ves que otros negocios crecen mientras vos quedás atrás</p>
+      </div>
+      <div class="problema-card">
+        <div class="problema-icon">🤯</div>
+        <h3>No tenés tiempo ni conocimientos</h3>
+        <p>Intentaste hacerlo solo y terminaste frustrado y sin resultados</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === SOLUCIÓN (INTERÉS) === -->
+  <section class="seccion-ayala solucion-ayala">
+    <h2 class="titulo-seccion">Imaginate Esto...</h2>
+    <div class="solucion-content">
+      <p>Despertarte cada mañana con notificaciones de <strong>nuevas ventas</strong> mientras dormías.</p>
+      <p>Ver cómo tu negocio <strong>crece mes a mes</strong> con clientes que sí compran.</p>
+      <p>Sentir la tranquilidad de saber que cada peso invertido en publicidad <strong>genera más de lo que gastás</strong>.</p>
+      <p class="destacado-verde">🎯 Eso es exactamente lo que hacemos: Campañas publicitarias con ESTRATEGIA REAL que convierten</p>
+    </div>
+  </section>
+
+  <!-- === BENEFICIOS (DESEO) === -->
+  <section class="seccion-ayala beneficios-ayala">
+    <h2 class="titulo-seccion">¿Qué Vas a Conseguir con Nuestras Campañas?</h2>
+    <div class="beneficios-grid">
+      <div class="beneficio-item">
+        <div class="beneficio-icon">💰</div>
+        <h3>Más ventas y clientes reales</h3>
+        <p>No solo tráfico, sino personas que SÍ compran</p>
+      </div>
+      <div class="beneficio-item">
+        <div class="beneficio-icon">📊</div>
+        <h3>ROI medible y transparente</h3>
+        <p>Vas a saber exactamente cuánto ganás por cada peso invertido</p>
+      </div>
+      <div class="beneficio-item">
+        <div class="beneficio-icon">🎯</div>
+        <h3>Segmentación precisa</h3>
+        <p>Tus anuncios llegan a tu cliente ideal, no a cualquiera</p>
+      </div>
+      <div class="beneficio-item">
+        <div class="beneficio-icon">🚀</div>
+        <h3>Escalabilidad controlada</h3>
+        <p>A medida que funciona, podés invertir más y ganar más</p>
+      </div>
+      <div class="beneficio-item">
+        <div class="beneficio-icon">⏰</div>
+        <h3>Ahorrás tiempo valioso</h3>
+        <p>Nosotros manejamos todo, vos te enfocás en tu negocio</p>
+      </div>
+      <div class="beneficio-item">
+        <div class="beneficio-icon">🔥</div>
+        <h3>Estrategia personalizada</h3>
+        <p>No usamos plantillas genéricas, cada campaña es única</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === PAQUETES === -->
+  <section class="seccion-ayala paquetes-ayala">
+    <h2 class="titulo-seccion">Elegí el Paquete que se Adapte a Tu Negocio</h2>
+    <p class="subtitulo-seccion">Sin contratos eternos · Resultados desde el primer mes · Inversión escalable</p>
+    
+    <div class="paquetes-grid">
+      
+      <!-- PAQUETE 1: IMPULSO LOCAL -->
+      <div class="paquete-card">
+        <h3>💡 Impulso Local</h3>
+        <div class="paquete-precio">$120.000 <span style="font-size: 1.2rem;">/mes</span></div>
+        <p class="paquete-detalle">Inversión publicitaria mínima: $50.000 ARS/mes</p>
+        <div class="objetivo-tag">🎯 Objetivo: TRÁFICO</div>
+        <ul class="paquete-lista">
+          <li>Gestión de campañas en Meta Ads</li>
+          <li>Campañas de tráfico optimizadas</li>
+          <li>12 piezas gráficas para anuncios</li>
+          <li>Copywriting persuasivo</li>
+          <li>Segmentación local</li>
+          <li>Pixel de Meta instalado</li>
+          <li>Informe mensual completo</li>
+          <li>1 reunión mensual</li>
+          <li>WhatsApp en horario laboral</li>
+        </ul>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">✅ Ideal para: Emprendimientos nuevos, negocios locales</p>
+        <a href="https://wa.link/bmcp0n" class="btn-paquete" target="_blank">Cotizar este paquete</a>
+      </div>
+
+      <!-- PAQUETE 2: CRECIMIENTO PRO -->
+      <div class="paquete-card">
+        <div class="badge-popular">⭐ MÁS ELEGIDO</div>
+        <h3>🚀 Crecimiento Pro</h3>
+        <div class="paquete-precio">$80.000 <span style="font-size: 1.2rem;">+ 10% mensual</span></div>
+        <p class="paquete-detalle">Setup inicial $80K (única vez) · Inversión mínima: $150.000 ARS/mes</p>
+        <div class="objetivo-tag">🎯 Objetivo: INTERACCIÓN + CONVERSIÓN</div>
+        <p style="font-weight: 600; margin-bottom: 15px;">Setup inicial ($80K una vez):</p>
+        <ul class="paquete-lista">
+          <li>Auditoría completa</li>
+          <li>Estrategia de campaña (90 días)</li>
+          <li>Configuración de píxeles y eventos</li>
+          <li>Audiencias personalizadas</li>
+          <li>Setup de tracking</li>
+        </ul>
+        <p style="font-weight: 600; margin: 20px 0 15px 0;">Gestión mensual (10% de inversión):</p>
+        <ul class="paquete-lista">
+          <li>Meta Ads + Google Ads</li>
+          <li>4-5 campañas activas simultáneas</li>
+          <li>20 piezas gráficas profesionales</li>
+          <li>2 videos cortos por mes</li>
+          <li>Copywriting AIDA/PAS</li>
+          <li>Segmentación avanzada + lookalike</li>
+          <li>Remarketing automatizado</li>
+          <li>Landing page básica incluida</li>
+          <li>Informes semanales + Dashboard</li>
+          <li>2 reuniones mensuales</li>
+          <li>WhatsApp prioritario</li>
+        </ul>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">✅ Ideal para: PyMEs establecidas, e-commerce, servicios</p>
+        <a href="https://wa.link/bmcp0n" class="btn-paquete" target="_blank">Cotizar este paquete</a>
+      </div>
+
+      <!-- PAQUETE 3: DOMINACIÓN TOTAL -->
+      <div class="paquete-card">
+        <h3>👑 Dominación Total</h3>
+        <div class="paquete-precio">$150.000 <span style="font-size: 1.2rem;">+ 8% mensual</span></div>
+        <p class="paquete-detalle">Setup inicial $150K (única vez) · Inversión mínima: $500.000 ARS/mes</p>
+        <div class="objetivo-tag">🎯 Objetivo: CONVERSIÓN TOTAL</div>
+        <p style="font-weight: 600; margin-bottom: 15px;">Setup inicial ($150K una vez):</p>
+        <ul class="paquete-lista">
+          <li>Auditoría profunda + competencia</li>
+          <li>Estrategia integral (6 meses)</li>
+          <li>Funnel completo diseñado</li>
+          <li>Setup avanzado con IA</li>
+          <li>Integración CRM + Email marketing</li>
+          <li>Capacitación al equipo</li>
+        </ul>
+        <p style="font-weight: 600; margin: 20px 0 15px 0;">Gestión mensual (8% de inversión):</p>
+        <ul class="paquete-lista">
+          <li>Meta + Google + TikTok Ads</li>
+          <li>8-10 campañas activas simultáneas</li>
+          <li>30+ piezas gráficas premium</li>
+          <li>4 videos profesionales mensuales</li>
+          <li>Copywriting con neuromarketing</li>
+          <li>Segmentación con IA predictiva</li>
+          <li>Funnel awareness → conversión</li>
+          <li>A/B testing constante</li>
+          <li>Remarketing multicanal</li>
+          <li>Email marketing automatizado</li>
+          <li>Gestión de influencers</li>
+          <li>Dashboard en tiempo real</li>
+          <li>Reuniones semanales</li>
+          <li>WhatsApp 24/7</li>
+          <li>Trafficker + CM dedicados</li>
+        </ul>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">✅ Ideal para: Empresas consolidadas, cadenas de locales</p>
+        <a href="https://wa.link/bmcp0n" class="btn-paquete" target="_blank">Cotizar este paquete</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- === TESTIMONIOS === -->
+  <section class="seccion-ayala testimonios-ayala">
+    <h2 class="titulo-seccion">Lo Que Dicen Nuestros Clientes</h2>
+    <p class="subtitulo-seccion">Resultados reales de negocios reales</p>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <p>"Antes gastaba $100.000 al mes sin saber si funcionaba. Ahora con el paquete Crecimiento Pro genero $450.000 mensuales en ventas. <span class="testimonio-roi">ROI: 3X</span>"</p>
+        <span class="testimonio-autor">— Martín R., Tienda de indumentaria</span>
+      </div>
+      <div class="testimonio-card">
+        <p>"En solo 2 meses triplicamos nuestras ventas online. El equipo sabe lo que hace y los informes son súper claros. <span class="testimonio-roi">ROI: 4.5X</span>"</p>
+        <span class="testimonio-autor">— Laura G., E-commerce de cosmética</span>
+      </div>
+      <div class="testimonio-card">
+        <p>"Pasé de tener 5 clientes al mes a 40. La inversión se paga sola y me sobra. Es la mejor decisión que tomé para mi negocio. <span class="testimonio-roi">ROI: 5X</span>"</p>
+        <span class="testimonio-autor">— Carlos M., Servicio de limpieza</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- === FAQ === -->
+  <section class="seccion-ayala faq-ayala">
+    <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
+    <div class="faq-container">
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Cuánto tiempo tarda en verse resultados?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Los primeros resultados empiezan a verse entre 7 y 15 días. A partir del mes 2-3 es cuando las campañas están optimizadas al máximo y generan ROI consistente.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Hay contrato de permanencia?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>No. Trabajamos mes a mes. Si no te gusta, podés cancelar cuando quieras (aunque estamos seguros de que no vas a querer hacerlo 😉).</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Qué pasa si mi inversión publicitaria es menor a la mínima?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Podemos trabajar con inversiones menores, pero los resultados tardan más en aparecer y el costo de gestión puede ser más alto proporcionalmente. Hablemos por WhatsApp para ver qué se ajusta mejor a tu situación.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Ustedes manejan mi dinero de publicidad?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>No. Tu inversión publicitaria la pagás directo a Meta/Google/TikTok desde tu cuenta. Nosotros solo gestionamos las campañas. Vos tenés el control total de tu dinero.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Qué pasa si no funciona?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Trabajamos con estrategias probadas y hacemos ajustes constantes. Si algo no funciona, lo corregimos rápido. Si después de 60 días no ves mejoras, revisamos todo el funnel para encontrar el problema. Nuestro éxito depende del tuyo.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- === CTA FINAL === -->
+  <section class="cta-final">
+    <h2>🚀 ¿Listo para Hacer Crecer Tu Negocio de Verdad?</h2>
+    <p>Dejá de perder tiempo y dinero en publicidad que no funciona. Empezá a generar ventas reales HOY.</p>
+    <a href="https://wa.link/bmcp0n" class="btn-cta" target="_blank">📱 Quiero una Cotización AHORA</a>
+  </section>
+
+  <!-- === FOOTER === -->
+  <footer class="footer-ayala">
+    <p>© 2025 Agencia Arnaldo Ayala – Estratega en IA y Marketing</p>
+    <p>Transformando negocios con estrategias digitales que funcionan</p>
+  </footer>
+
+  <!-- === JAVASCRIPT PARA FAQ === -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+
+      faqQuestions.forEach(function(question) {
+        question.addEventListener('click', function() {
+          const answer = this.nextElementSibling;
+          const toggle = this.querySelector('.faq-toggle');
+          
+          // Toggle visibility
+          if (answer.hidden) {
+            answer.hidden = false;
+            toggle.textContent = '−';
+          } else {
+            answer.hidden = true;
+            toggle.textContent = '+';
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- Sitio web hecho por Arnaldo Ayala – Estratega en IA y Marketing -->
+</body>
+</html>
