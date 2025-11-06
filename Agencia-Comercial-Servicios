@@ -100,7 +100,6 @@
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      cursor: pointer;
       border: 1px solid rgba(0, 217, 255, 0.1);
       display: flex;
       flex-direction: column;
@@ -204,7 +203,7 @@
       flex-grow: 1;
     }
 
-    /* Botón Cotizar */
+    /* Botón Ver Más Detalles */
     .btn-cotizar-ayala {
       display: inline-flex;
       align-items: center;
@@ -220,6 +219,9 @@
       box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
       margin-top: auto;
       align-self: flex-start;
+      position: relative;
+      z-index: 10;
+      pointer-events: auto;
     }
 
     .btn-cotizar-ayala:hover {
@@ -252,6 +254,7 @@
       transform: rotate(45deg);
       transition: all 0.6s ease;
       opacity: 0;
+      pointer-events: none;
     }
 
     .servicio-card-ayala:hover::after {
@@ -298,6 +301,7 @@
 
       .servicio-card-ayala {
         padding: 30px 25px;
+        cursor: default;
       }
 
       .servicio-icon-ayala {
@@ -313,6 +317,12 @@
 
       .servicio-card-ayala h3 {
         font-size: 1.35rem;
+      }
+
+      /* Asegurar que el botón funcione en móvil */
+      .btn-cotizar-ayala {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
       }
     }
 
@@ -385,8 +395,8 @@
           </div>
           <h3>Diseño Web</h3>
           <p>Creamos sitios web modernos, responsivos y optimizados que destacan tu marca y convierten visitantes en clientes. Experiencias digitales únicas que impulsan tu negocio.</p>
-          <a href="https://arnaldoayalaestratega.com/Disenamos-tu-sitio-web" class="btn-cotizar-ayala">
-            Cotizar
+          <a href="https://arnaldoayalaestratega.com/disenamos-tu-sitio-web/" class="btn-cotizar-ayala">
+            Ver Más Detalles
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -404,8 +414,8 @@
           </div>
           <h3>Campaña Publicitaria</h3>
           <p>Estrategias publicitarias integrales en redes sociales, Google Ads y medios digitales. Maximizamos tu ROI con campañas basadas en datos y resultados medibles.</p>
-          <a href="https://arnaldoayalaestratega.com/Organizamos-tus-campanas-publicitarias" class="btn-cotizar-ayala">
-            Cotizar
+          <a href="https://arnaldoayalaestratega.com/organizamos-tus-campanas-publicitarias/" class="btn-cotizar-ayala">
+            Ver Más Detalles
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -423,8 +433,8 @@
           </div>
           <h3>Automatización de Tareas con IA</h3>
           <p>Implementamos soluciones de inteligencia artificial para automatizar procesos, optimizar flujos de trabajo y aumentar la productividad de tu equipo significativamente.</p>
-          <a href="https://arnaldoayalaestratega.com/Automatizamos-tus-tareas-o-procesos" class="btn-cotizar-ayala">
-            Cotizar
+          <a href="https://arnaldoayalaestratega.com/automatizamos-tus-tareas-o-procesos/" class="btn-cotizar-ayala">
+            Ver Más Detalles
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -439,46 +449,50 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       
-      // === EFECTO PARALLAX EN DECORACIONES DE FONDO ===
-      const seccion = document.querySelector('.seccion-agencia-ayala');
-      
-      window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const seccionTop = seccion.offsetTop;
-        const seccionHeight = seccion.offsetHeight;
+      // === EFECTO PARALLAX EN DECORACIONES DE FONDO (SOLO DESKTOP) ===
+      if (window.innerWidth > 768) {
+        const seccion = document.querySelector('.seccion-agencia-ayala');
         
-        // Solo aplicar efecto cuando la sección está visible
-        if (scrolled > seccionTop - window.innerHeight && scrolled < seccionTop + seccionHeight) {
-          const offset = (scrolled - seccionTop) * 0.15;
-          seccion.style.backgroundPosition = `center ${offset}px`;
-        }
-      });
+        window.addEventListener('scroll', function() {
+          const scrolled = window.pageYOffset;
+          const seccionTop = seccion.offsetTop;
+          const seccionHeight = seccion.offsetHeight;
+          
+          // Solo aplicar efecto cuando la sección está visible
+          if (scrolled > seccionTop - window.innerHeight && scrolled < seccionTop + seccionHeight) {
+            const offset = (scrolled - seccionTop) * 0.15;
+            seccion.style.backgroundPosition = `center ${offset}px`;
+          }
+        });
+      }
 
-      // === EFECTO DE SEGUIMIENTO DEL MOUSE EN TARJETAS ===
+      // === EFECTO DE SEGUIMIENTO DEL MOUSE EN TARJETAS (SOLO DESKTOP) ===
+      if (window.innerWidth > 768) {
+        const tarjetas = document.querySelectorAll('.servicio-card-ayala');
+        
+        tarjetas.forEach(function(tarjeta) {
+          tarjeta.addEventListener('mousemove', function(e) {
+            const rect = tarjeta.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            tarjeta.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
+          });
+          
+          tarjeta.addEventListener('mouseleave', function() {
+            tarjeta.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+          });
+        });
+      }
+
+      // === ANIMACIÓN DE CONTADOR DE SERVICIOS ===
       const tarjetas = document.querySelectorAll('.servicio-card-ayala');
-      
-      tarjetas.forEach(function(tarjeta) {
-        tarjeta.addEventListener('mousemove', function(e) {
-          const rect = tarjeta.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          const rotateX = (y - centerY) / 20;
-          const rotateY = (centerX - x) / 20;
-          
-          tarjeta.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
-        });
-        
-        tarjeta.addEventListener('mouseleave', function() {
-          tarjeta.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-        });
-      });
-
-      // === ANIMACIÓN DE CONTADOR DE SERVICIOS (OPCIONAL) ===
-      // Detectar cuando la sección entra en viewport
       const observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
